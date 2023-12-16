@@ -6,6 +6,7 @@ import sety.*;
 
 public class CommunityMain extends LoginProgram{
 	
+	// 커뮤니티 메인 화면 제어하는 메서드
     public void communityController(boolean isAdmin){
     	SetyQuizManager quiz = new SetyQuizManager();
     	SetyNewsManager news = new SetyNewsManager();
@@ -18,15 +19,15 @@ public class CommunityMain extends LoginProgram{
             String choice = scanner.nextLine();
 
             if(choice.equals("1")) {
-                quiz.QuizController(isAdmin, scanner);
+                quiz.QuizController(isAdmin, scanner);	// 범죄 퀴즈 관리자 선택 시 실행
             }else if (choice.equals("2")) {
-            	news.NewsController(isAdmin, scanner);
+            	news.NewsController(isAdmin, scanner);	// 범죄 뉴스 관리자 선택 시 실행
             }else if(choice.equals("3")){
-            	statistics.statisticsController();;
+            	statistics.statisticsController();	// 지역별 범죄율 통계 선택 시 실행
             }else if(choice.equals("4")){
-            	return;
+            	return;	// 이전 메뉴로 돌아가기
             }else {
-                System.out.println("잘못된 선택입니다.");
+                System.out.println("잘못된 선택입니다.");	// 잘못된 입력 처리
             }
         }
     }

@@ -22,7 +22,8 @@ class EmergencyReport {
 
 class EmergencyControl {
     static ArrayList<EmergencyReport> reports = new ArrayList<>();
-
+    
+    // 긴급 신고를 받아 처리하는 메서드
     public void reportEmergency(Scanner scanner) {
         System.out.print("현재 위치: ");
         String location = scanner.nextLine();
@@ -38,7 +39,8 @@ class EmergencyControl {
 
         System.out.println("긴급 신고가 접수되었습니다.");
     }
-
+    
+    // 저장된 긴급 신고 목록을 보여주는 메서드
     public void showReports() {
         System.out.println("\n[긴급 신고 목록]");
         for (EmergencyReport report : reports) {
@@ -49,6 +51,7 @@ class EmergencyControl {
 
 public class SetyEmergencyManager {
 	
+	// 긴급 신고 시스템을 제어하는 메서드
     public void emergencyController() {
         Scanner scanner = new Scanner(System.in);
         EmergencyControl control = new EmergencyControl();
@@ -59,11 +62,11 @@ public class SetyEmergencyManager {
             int choice = scanner.nextInt();
             scanner.nextLine(); // 버퍼 비우기
 
-            if (choice == 1) {
+            if (choice == 1) {	// 긴급 신고 처리
                 control.reportEmergency(scanner);
-            } else if (choice == 2) {
+            } else if (choice == 2) {	// 신고 목록 보기
                 control.showReports();
-            } else if (choice == 3) {
+            } else if (choice == 3) {	// 뒤로가기
                 return;
             } else {
                 System.out.println("잘못된 입력입니다. 다시 시도해주세요.");

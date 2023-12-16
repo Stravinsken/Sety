@@ -2,9 +2,9 @@ package community_pack;
 
 import java.util.Scanner;
 
-public class SetyStatisticsManager {
+public class SetyStatisticsManager {			//범죄 통계 관리 클래스
 	
-	public void statisticsController() {
+	public void statisticsController() {		// 사용자가 통계를 조회하고 선택하는 메서드
 		 Scanner scanner = new Scanner(System.in);
 
 	        while (true) {
@@ -31,13 +31,14 @@ public class SetyStatisticsManager {
 	}
 	
 	public void showOverallStatistics(Scanner scanner) {
+		// 전체 통계 데이터 출력
 		System.out.println("[전체 통계]");
-        // 전체 통계 데이터 출력
         System.out.println("서울특별시: 7.9, 부산광역시: 3.4, 대구광역시: 3.5");
 
 	}
 	
 	public void showCityStatistics(Scanner scanner) {
+		//도시별 통계 출력
 		System.out.println("[지역별 통계]");
         System.out.println("1. 서울특별시");
         System.out.println("2. 부산광역시");

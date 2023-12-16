@@ -11,10 +11,10 @@ public class LoginProgram {
     private static final String ADMIN_PASSWORD = "admin"; // 관리자 비밀번호 설정
     static boolean loginFlag = false;
     HashMap<String, HashSet<String>> friendTable = new HashMap<>(); // 친구 목록을 저장하는 HashMap
-    HashMap<String,String> memberTable = new HashMap<String,String>(){{
+    HashMap<String,String> memberTable = new HashMap<String,String>(){{	//아이디와 비번을 저장하는 HashMap
     	put("test1", "1111");		//테스트용 회원
     	put("test2", "1111");
-    }};	//아이디와 비번을 저장하는 HashMap
+    }};								
     
     public void setId(String id) {
         this.id = id;
@@ -231,9 +231,9 @@ public class LoginProgram {
             	}
             case '6':
                 if (loginFlag && id.equals(ADMIN_ID) && password.equals(ADMIN_PASSWORD)) {
-                	adminViewMemberInfo();
+                	adminViewMemberInfo();			//어드민인 경우 가입된 회원정보를 확인 할 수 있다.
                 } else {
-                    System.out.println("잘못된 값 입력");
+                    System.out.println("잘못된 값 입력");		
                 }
                 break;
             default:

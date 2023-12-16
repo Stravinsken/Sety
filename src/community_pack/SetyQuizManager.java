@@ -6,12 +6,14 @@ import java.util.Scanner;
 import java.util.Collections;
 
 class OXQuiz {
+	// 퀴즈, 정답, 해설을 저장할 리스트들과 Scanner 인스턴스 선언
    List<String> question = new ArrayList<>();
    List<Boolean> answer = new ArrayList<>();
    List<String> commentary = new ArrayList<>();
    Scanner scanner = new Scanner(System.in);
    
-   public void addQuestion(String questions,Boolean answers, String comment) { //문제 추가 기능
+   // 퀴즈 추가 메서드
+   public void addQuestion(String questions,Boolean answers, String comment) {
       question.add(questions);
       answer.add(answers);
       commentary.add(comment);
@@ -19,6 +21,7 @@ class OXQuiz {
    
    public void addQuestionMessage() {
        try {
+    	// 사용자 입력을 받아 퀴즈, 답, 해설을 추가
            System.out.print("문제를 입력하세요 : ");
            String quizMessage = scanner.nextLine();
 
@@ -38,6 +41,7 @@ class OXQuiz {
        }
    }
    
+   // 퀴즈 목록을 출력하는 메서드
    public void displayQuiz() {
       System.out.println("\n<퀴즈 목록>");
       for(int i=0; i<question.size(); i++) {
@@ -48,6 +52,7 @@ class OXQuiz {
       }
    }
    
+   // 20개의 사전 퀴즈 추가
    public void preQuiz20() {
        addQuestion("가방이나 지갑을 외부에 놓고 두는 것은 안전하다. (O/X)", false, "가방이나 지갑은 외부에 두면 도난의 위험이 있습니다.");
        addQuestion("밤에 혼자 걷거나 달리는 것은 안전하다. (O/X)", false, "밤에 혼자 외출할 때는 주의가 필요합니다.");
@@ -71,7 +76,7 @@ class OXQuiz {
        addQuestion("소란을 피우거나 유독물질을 섭취하는 것은 안전하다. (O/X)", false, "소란을 피우거나 유독물질을 섭취하는 것은 안전에 위협이 됩니다.");
    }
 
-   
+   // 퀴즈 번호를 랜덤하게 생성하는 메서드
    public List<Integer> quiznumRandom() {
       List<Integer> indexs = new ArrayList<>();
       
@@ -83,7 +88,7 @@ class OXQuiz {
    }
    
    
-   
+   // 랜덤하게 선택된 5개의 퀴즈를 출제하는 메서드
    public void generateQuiz() {
        int count = 0;
        List<Integer> indexs = quiznumRandom();
@@ -125,7 +130,7 @@ class OXQuiz {
 
 }
 
-
+//퀴즈 관리 클래스
 public class SetyQuizManager {
 
     public void QuizController(boolean isAdmin,Scanner scanner) {

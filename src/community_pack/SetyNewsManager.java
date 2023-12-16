@@ -28,6 +28,7 @@ class News {
         return date;
     }
     
+    // 초기 뉴스 추가를 위한 메서드
     public static void initializeNews() {
        List<News> violentCrimesNews = new ArrayList<>();
         violentCrimesNews.add(new News("도심에서 발생한 익사사건", "어제 밤 도심에서 발생한 익사사건으로, 한 시민이 알 수 없는 이유로 폭행을 당하다가 익사했습니다. 경찰은 용의자를 신속히 검거했으며, 수사 중에 있습니다.","23-01-19"));
@@ -60,7 +61,8 @@ class News {
 
         newsMap.put("Drug Crimes", drugCrimesNews);
     }
-
+    
+    // 사용자가 입력한 뉴스를 추가하는 메서드
     public static void addNews(String category, String title, String content, String date) {
         News userNews = new News(title, content, date);
 
@@ -76,6 +78,7 @@ class News {
         System.out.println("사용자가 제보한 뉴스가 추가되었습니다.");
     }
 
+    // 특정 카테고리의 뉴스를 출력하는 메서드
     public static void displayNews(String category) {
         List<News> newsList = newsMap.get(category);
 
@@ -91,6 +94,7 @@ class News {
         }
     }
 
+    // 모든 뉴스를 출력하는 메서드
     public static void displayAllNews() {
         System.out.println("\n[모든 뉴스]");
         for (Map.Entry<String, List<News>> entry : newsMap.entrySet()) {
@@ -106,6 +110,7 @@ class News {
         }
     }
 
+    // 카테고리 선택을 위한 메서드
     public static String categoryChoice(int category) {
         switch (category) {
             case 1:
@@ -121,6 +126,7 @@ class News {
         }
     }
 
+    // 사용자가 뉴스를 추가하는 시스템 메서드
     public static void addNewsSystem(Scanner scanner) {
        
         System.out.print("Enter title: ");
@@ -146,11 +152,12 @@ class News {
     
 }
 
-public class SetyNewsManager {
+//뉴스 관리 클래스
+public class SetyNewsManager {	
 
 	public void NewsController(boolean isAdmin, Scanner scanner) {
         
-        News.initializeNews();
+        News.initializeNews();	//초기 뉴스 추가
         boolean running = true;
 
         while (running) {
@@ -167,6 +174,7 @@ public class SetyNewsManager {
 
             switch (choice) {
                 case 1:
+                	// 카테고리 선택하여 해당 카테고리의 뉴스 출력
                     System.out.println("\n1.폭력 범죄 2.재산 범죄 3.사이버 범죄 4.마약 범죄");
                     System.out.print(">>>");
                     int categoryChoice = scanner.nextInt();
@@ -175,13 +183,15 @@ public class SetyNewsManager {
                     News.displayNews(category);
                     break;
                 case 2:
+                	// 모든 뉴스 출력
                     News.displayAllNews();
                     break;
                 case 3:
+                	// 이전 메뉴로 돌아가기
                 	running = false;
                     return;
                 case 4:
-                	if(isAdmin)
+                	if(isAdmin)	//어드민인 경우 뉴스 추가
                 		News.addNewsSystem(scanner);
                 	else
                 		System.out.println("잘못된 선택입니다. 다시 선택하세요.");

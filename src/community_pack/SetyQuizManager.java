@@ -149,6 +149,7 @@ public class SetyQuizManager {
             }
             System.out.print(">>> ");
             choice = scanner.nextInt();
+            scanner.nextLine(); // 정수 입력 뒤의 개행 문자 처리
 
             switch (choice) {
                 case 1:
